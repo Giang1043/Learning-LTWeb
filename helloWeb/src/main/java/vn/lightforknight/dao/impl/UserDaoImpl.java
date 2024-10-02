@@ -9,7 +9,8 @@ import java.util.List;
 
 import vn.lightforknight.dao.IUserDAO;
 import vn.lightforknight.models.UserModel;
-import vn.lightforknight.utils.DBconnectSQL; // Assuming this is your DB connection class
+//import vn.lightforknight.utils.DBconnectSQL; // Assuming this is your DB connection class
+import vn.lightforknight.configs.DBConnectionMySQL; // Correct import
 
 public class UserDaoImpl implements IUserDAO {
 
@@ -24,7 +25,7 @@ public class UserDaoImpl implements IUserDAO {
         
         try {
             // Establishing the connection
-            conn = new DBconnectSQL().getConnection();
+            conn = new DBConnectionMySQL().getDataConnection();
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
 
@@ -64,7 +65,7 @@ public class UserDaoImpl implements IUserDAO {
         UserModel user = null;
 
         try {
-            conn = new DBconnectSQL().getConnection();
+            conn = new DBConnectionMySQL().getDataConnection();
             ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -102,7 +103,7 @@ public class UserDaoImpl implements IUserDAO {
         String sql = "INSERT INTO users (username, password, images, fullname, email, phone, roleid, createDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
-            conn = new DBconnectSQL().getConnection();
+            conn = new DBConnectionMySQL().getDataConnection();
             ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());

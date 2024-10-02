@@ -1,5 +1,7 @@
 package vn.lightforknight.services;
 
-public class IUserService {
+import vn.lightforknight.models.UserModel;
 
+public interface IUserService {
+    UserModel login(String username, String password);
 }

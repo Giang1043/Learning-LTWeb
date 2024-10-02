@@ -62,11 +62,11 @@ public class UserModel implements Serializable {
 		this.password = password;
 	}
 
-	public String getImage() {
+	public String getImages() {
 		return images;
 	}
 
-	public void setImage(String image) {
+	public void setImage(String images) {
 		this.images = images;
 	}
 
